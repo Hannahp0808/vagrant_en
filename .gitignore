@@ -4,3 +4,6 @@ slurm*
 data/
 gpu-dollar-job.sh
 checkpoints/
+# pixi environments
+.pixi/*
+!.pixi/config.toml
