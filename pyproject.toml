@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pixi.workspace]
+name = "vagrant_en"
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+vagrant_en = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+numpy = ">=2.4.1,<3"
+pandas = ">=2.3.3,<3"
+scikit-learn = ">=1.8.0,<2"
+scipy = ">=1.17.0,<2"
+tqdm = ">=4.67.1,<5"
+pytorch = ">=2.9.1,<3"
+rdkit = ">=2025.9.4,<2026"
+morfeus-ml = ">=0.8.0,<0.9"
+selfies = ">=2.2.0,<3"
