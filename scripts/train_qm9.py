@@ -69,7 +69,14 @@ def run_epoch(model, args, optimizer, lr_scheduler,
 def train(args):
     # Set device and dtype
     args.cuda = torch.cuda.is_available()
-    args.device = torch.device("cuda" if args.cuda else "cpu")
+    if args.cuda:
+        device = "cuda"
+    elif args.mps:
+        device = "mps"
+    else:
+        device = "cpu"
+
+    args.device = torch.device(device)
     args.dtype = torch.float32
 
     os.makedirs(args.ckpt_dir, exist_ok=True)
@@ -214,5 +221,8 @@ if __name__ == '__main__':
     parser.add_argument('--calc_bonds', default=False, action='store_true')
     parser.add_argument('--remove_h', default=False, action='store_true')
     parser.add_argument('--include_bonds', default=False, action='store_true')
+
+    parser.add_argument('--cuda', default=False, action='store_true')
+    parser.add_argument('--mps', default=False, action='store_true')
     args = parser.parse_args()
     train(args)

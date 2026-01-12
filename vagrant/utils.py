@@ -127,7 +127,7 @@ def get_vocab_weights(train_smiles, vocab, num_char, max_length, freq_penalty=0.
     for i, w in enumerate(char_weights):
         if w > 2*min_weight:
             char_weights[i] = 2*min_weight
-    scaler = MinMaxScaler([freq_penalty,1.0])
+    scaler = MinMaxScaler((freq_penalty,1.0))
     char_weights = scaler.fit_transform(char_weights.reshape(-1, 1))
     return char_weights[:,0]
 

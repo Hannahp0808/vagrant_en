@@ -171,7 +171,7 @@ def add_thermo_targets(data, therm_energy_dict):
 
 def get_unique_charges(charges):
     # Create a dictionary of charges
-    charge_counts = {z: np.zeros(len(charges), dtype=np.int)
+    charge_counts = {z: np.zeros(len(charges), dtype=np.int32)
                      for z in np.unique(charges)}
     print(charge_counts.keys())
 

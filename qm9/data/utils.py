@@ -88,9 +88,9 @@ def initialize_datasets(args, datadir, dataset, calc_bonds=False, subset=None, s
         test_strings = test_smiles
         val_strings = val_smiles
     elif seq_rep == 'selfies':
-        train_strings = np.empty(train_smiles.shape, dtype=np.object)
-        test_strings = np.empty(test_smiles.shape, dtype=np.object)
-        val_strings = np.empty(val_smiles.shape, dtype=np.object)
+        train_strings = np.empty(train_smiles.shape, dtype=object)
+        test_strings = np.empty(test_smiles.shape, dtype=object)
+        val_strings = np.empty(val_smiles.shape, dtype=object)
         for i, smi in enumerate(train_smiles):
             train_strings[i] = sf.encoder(smi)
         for i, smi in enumerate(test_smiles):
